@@ -9,7 +9,20 @@ import java.io.FileOutputStream;
 
 public class CreatePdf {
 
-    public static void main(String... args) throws FileNotFoundException, DocumentException {
+    public static void main(String... args) {
+       CreatePdf createPdf = new CreatePdf();
+       createPdf.savePdf();
+    }
+
+    void savePdf(){
+        try{
+            generatePDF();
+        }catch (Exception e){
+            System.out.println(super.toString());
+        }
+    }
+
+    private void generatePDF() throws  FileNotFoundException, DocumentException{
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         PdfWriter.getInstance(document, new FileOutputStream("result.pdf"));
         document.open();
